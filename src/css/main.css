@@ -1,0 +1,206 @@
+@import '_normalize.css';
+
+:root {
+  /** Colors */
+  --red: hsl(0, 78%, 62%);
+  --cyan: hsl(180, 62%, 55%);
+  --orange: hsl(34, 97%, 64%);
+  --blue: hsl(212, 86%, 64%);
+  --blue-dark: hsl(234, 12%, 34%);
+  --blue-grayish: hsl(229, 6%, 66%);
+  --gray-light: hsl(0, 0%, 98%);
+
+  /** Typography */
+  --body-font-family: 'Poppins', sans-serif;
+  --body-font-size: 0.9375rem; /* 15px */
+}
+
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  font-size: var(--body-font-size);
+  height: 100%;
+}
+
+body {
+  font-family: var(--body-font-family);
+}
+
+.root-container {
+  background-color: var(--gray-light);
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 5em 2em 1em;
+}
+
+.container {
+  flex: 1;
+  margin-bottom: 3em;
+}
+
+.intro {
+  max-width: 23.33em;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.intro-heading {
+  color: var(--blue-dark);
+  font-size: 1.7rem;
+  font-weight: 200;
+  line-height: 1.4;
+}
+
+.intro-heading strong {
+  font-weight: 600;
+}
+
+.intro-body {
+  color: var(--blue-grayish);
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.features {
+  display: grid;
+  justify-items: center;
+  gap: 2em;
+  grid-template-rows: repeat(4, 1fr);
+  margin-top: 5em;
+}
+
+.card {
+  --card-border-color: var(--blue-dark);
+  --card-image: url(../images/icon-supervisor.svg);
+
+  background-color: white;
+  border-radius: 0.5em;
+  box-shadow: 0 1em 1em -0.25em hsla(234, 12%, 34%, 15%);
+  max-width: 24em;
+  overflow: hidden;
+}
+
+.card-content {
+  border-top: 0.3em solid var(--card-border-color);
+  padding: 1.5em 2em;
+}
+
+.card-heading {
+  color: var(--blue-dark);
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  text-transform: capitalize;
+}
+
+.card-body {
+  color: var(--blue-grayish);
+  font-size: 0.8rem;
+  line-height: 1.75;
+  margin-top: 0;
+  padding-right: 2.5em;
+}
+
+.card-image {
+  background-image: var(--card-image);
+  background-size: contain;
+  background-position: right;
+  background-repeat: no-repeat;
+  height: 4rem;
+  margin-top: 3em;
+}
+
+.card-supervisor {
+  --card-border-color: var(--cyan);
+  --card-image: url(../images/icon-supervisor.svg);
+}
+
+.card-team-builder {
+  --card-border-color: var(--red);
+  --card-image: url(../images/icon-team-builder.svg);
+}
+
+.card-karma {
+  --card-border-color: var(--orange);
+  --card-image: url(../images/icon-karma.svg);
+}
+
+.card-calculator {
+  --card-border-color: var(--blue);
+  --card-image: url(../images/icon-calculator.svg);
+}
+
+.attribution {
+  color: var(--blue-grayish);
+  display: block;
+  text-align: center;
+}
+
+.attribution a {
+  color: var(--blue-dark);
+}
+
+@media screen and (min-width: 768px) {
+  .root-container {
+    padding: 4em 2em 1em;
+  }
+
+  .intro {
+    max-width: 33.33em;
+  }
+
+  .intro-heading {
+    font-size: 2.5rem;
+  }
+
+  .features {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    margin-top: 4em;
+  }
+
+  .card-supervisor,
+  .card-karma {
+    justify-self: end;
+  }
+
+  .card-team-builder,
+  .card-calculator {
+    justify-self: start;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .features {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    max-width: 68em;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .card-body {
+    padding-right: 2.25em;
+  }
+
+  .card-supervisor {
+    align-self: center;
+    justify-self: end;
+    grid-row: 1 / span 2;
+  }
+
+  .card-calculator {
+    align-self: center;
+    justify-self: start;
+    grid-column: 3;
+    grid-row: 1 / span 2;
+  }
+}
